@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Website</title>
+    <style>
+        body {
+            background-image: url('live.jpg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column; /* Ensures items are stacked vertically */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .heading-container {
+            background: rgba(0, 0, 0, 0.5); /* Dark semi-transparent background */
+            color: white; /* Ensures text is visible */
+            padding: 20px;
+            border-radius: 10px; /* Soft rounded corners */
+        }
+        .heading-container {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            margin-bottom: 20px; /* Adds spacing between heading and button */
+        }
+
+        .big-button {
+            font-size: 24px;
+            padding: 20px 40px;
+            background-color: rgb(163, 32, 65);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .big-button:hover {
+            background-color: rgb(133, 3, 3);
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgb(163, 32, 65);
+            padding: 40px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .popup button {
+            margin: 20px;
+            padding: 15px 30px;
+            border: none;
+            background: white;
+            color: rgb(8, 8, 8);
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .popup button:hover {
+            background: #f8d7da;
+        }
+
+        .yes-buttons {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .yes-buttons button {
+            position: absolute;
+            background: rgb(107, 106, 106);
+            color: white;
+            padding: 20px 40px;
+            font-size: 24px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .yes-buttons button:hover {
+            background: rgb(91, 87, 88);
+        }
+    </style>
+</head>
+<body>
+    <div class="heading-container">
+        <h1>Welcome, Baby!!</h1>
+        <h1>I don’t know what to call this… a website? A shrine? </h1>
+        <h1> "The Kingdom of My Queen"</h1>
+    </div>
+
+    <button onclick="showPopup()" class="big-button">Unleash the Mystery!</button>
+    
+    <div class="popup" id="popup">
+        <p>Will you be my forever Valentine? ❤️</p>
+        <p>No refunds, no escape, just lifetime VIP access to my heart.</p>
+        <button onclick="answer('Yes')">Yes</button>
+        <button onclick="answer('No')">No</button>
+    </div>    
+    
+    <div class="yes-buttons" id="yesButtons"></div>
+    
+    <script>
+        function showPopup() {
+            document.querySelector('.heading-container').style.display = 'none';
+            document.querySelector('.big-button').style.display = 'none';
+            document.getElementById('popup').style.display = 'block';
+        }
+        
+        function answer(response) {
+            if (response === 'Yes') {
+                window.location.href = 'yes.html';
+            } else {
+                generateYesButtons();
+            }
+        }
+
+        function generateYesButtons() {
+            const container = document.getElementById('yesButtons');
+            container.style.display = 'block';
+            container.innerHTML = '';
+
+            for (let i = 0; i < 50; i++) {
+                let btn = document.createElement('button');
+                btn.innerText = 'Yes';
+                btn.style.top = Math.random() * 90 + 'vh';
+                btn.style.left = Math.random() * 90 + 'vw';
+
+                btn.onclick = function() {
+                    window.location.href = 'yes.html';
+                };
+
+                container.appendChild(btn);
+            }
+        }
+    </script>
+</body>
+</html>

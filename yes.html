@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Are You Sure?</title>
+    <style>
+        body {
+            background-image: url('live.jpg');  /* Set the background image */
+            background-size: contain;  /* Ensure the background covers the entire page */
+            background-position: center;  /* Center the background image */
+            background-repeat: no-repeat;  /* Prevent the image from repeating */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .confirmation-box {
+            width: 80%;
+            max-width: 500px;
+            background: #ba3540;  /* Maroon background */
+            padding: 40px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 254, 254, 0.971);
+        }
+        .confirmation-box p {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;  /* White text for better contrast */
+        }
+        .confirmation-box button {
+            margin-top: 20px;
+            padding: 15px 30px;
+            border: none;
+            background: #f1f1f1;  /* Light gray button color */
+            color: #333333;  /* Dark text color for readability */
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;  /* Make the text bolder */
+            text-transform: uppercase;  /* Make the text uppercase */
+        }
+        .confirmation-box button:hover {
+            background: #e1e1e1;  /* Slightly darker gray on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="confirmation-box">
+        <p>Locking this in? (Lifetime contract, no escape!)</p>
+        <button onclick="confirmSelection()">Yes</button>
+    </div>
+
+    <script>
+        function confirmSelection() {
+            alert("ARE YOU SURE LIKE SURE SURE?");
+            // Redirect to 'final.html' when 'Yes' is clicked
+            window.location.href = 'final.html';  // Redirect to the final page
+        }
+    </script>
+</body>
+</html>
